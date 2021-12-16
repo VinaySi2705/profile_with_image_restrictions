@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>url Images</title>
+
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+                        table, th, td {
+                                  border: 1px solid black;
+                                  border-collapse: collapse;
+                                       }
+                        th, td {
+                                  padding: 5px;
+                               }
+                        th,td {
+                                  text-align: center;
+                           }
+
+
+                        #mybutton {
+                                  position: fixed;
+                                  top: 10px;
+                                  right: 20px;
+                                  }
+        </style>
+</head>
+<body>
+        <h1 style="padding-left:150px; margin-top:40px">Profile Urls</h1>
+        <div id="mybutton">
+            <a class="btn btn-primary" href="{% url 'home' %}">Go back!</a>
+        </div>
+        <div class="container">
+            <div class="jumbotron">
+                <table style="width:100%">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile No.</th>
+                    </tr>
+                    {% for profile in profiles %}
+                    <tr>
+                        <td><a href="{{ profile.profile_photo.url }}">{{profile.name}}</a></td>
+                        <td>{{ profile.email }}</td>
+                        <td>{{profile.mobile_no}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+</body>
+</html>
